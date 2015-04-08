@@ -1,5 +1,5 @@
 {
-    "name": "mckaysoftware/flash",
+    "name": "mckay/flash",
     "type": "library",
     "description": "Handy flash messages.",
     "keywords": ["flash", "messages", "session"],
@@ -22,7 +22,7 @@
     },
     "autoload": {
     	"psr-4": {
-    		"Mckay\\Flash\\": "src"
+    		"Mckay\\": "src"
     	}
     }
 }

@@ -1,5 +1,7 @@
 <?
 
+namespace McKay;
+
 class Flash {
 	public static function debug  ($message = NULL) { return static::message('debug',   $message); }
 	public static function error  ($message = NULL) { return static::message('error',   $message); }
