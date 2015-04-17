@@ -3,7 +3,7 @@
     "type": "library",
     "description": "Handy flash messages.",
     "keywords": ["flash", "messages", "session"],
-    "license": "Proprietary",
+    "license": "MIT",
     "authors": [
     	{
     		"name": "Félix Saparelli",
