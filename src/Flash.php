@@ -15,13 +15,13 @@ class Flash {
 			if ($message !== NULL) {
 				$time = microtime(true);
 				error_log("Flash::$type [$time]: $message");
-				$f[] = ['timestamp' => $time, 'message' => $message];
+				$f[] = array('timestamp' => $time, 'message' => $message);
 				static::raw($type, json_encode($f));
 			} else {
 				return $f;
 			}
 		} else {
-			static::raw($type, json_encode([]));
+			static::raw($type, json_encode(array()));
 			static::message($type, $message);
 		}
 	}
@@ -41,9 +41,9 @@ class Flash {
 	public static function clear($type = null) {
 		if ($type == null) {
 			$types = static::types();
-			return array_walk($types, function($type) {
+			foreach ($types as $type) {
 				static::clear($type);
-			});
+			}
 		}
 
 		unset($_SESSION['flash.' . $type]);
@@ -51,7 +51,8 @@ class Flash {
 
 	public static function types() {
 		$res = array_filter(array_map(function ($key) {
-			return explode('.', $key, 2)[1];
+			$exploded = explode('.', $key, 2);
+			return $exploded[1];
 		}, array_filter(array_keys($_SESSION), function ($key) {
 			return substr($key, 0, strlen('flash.')) === 'flash.';
 		})));
@@ -59,7 +60,7 @@ class Flash {
 	}
 
 	public static function all() {
-		$messages = [];
+		$messages = array();
 		foreach(static::types() as $type) {
 			foreach(static::message($type) as $message) {
 				$message['type'] = $type;
