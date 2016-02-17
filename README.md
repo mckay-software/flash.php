@@ -7,7 +7,7 @@ _Tiny flash message library optimised for Bootstrap._
 Add it to your composer.json:
 
 ```json
-"mckay/flash": "^1.0.3",
+"mckay/flash": "^1.0.5",
 ```
 
 then run `$ composer update`.
@@ -46,6 +46,6 @@ if ($user->heartbeat > 0) {
 
 ## License
 
-Copyright © McKay Software  
-MIT License  
+Copyright © McKay Software
+MIT License
 http://mckay.mit-license.org
